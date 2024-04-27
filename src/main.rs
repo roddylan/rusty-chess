@@ -17,6 +17,27 @@ static LOOKUP67: [usize; 67+1] = [
     6, 34, 33, 64
 ];
 
+
+enum Color {
+    White,
+    Black
+}
+
+enum PieceType {
+    Pawn,
+    Rook, 
+    Knight,
+    Bishop,
+    Queen,
+    King
+}
+
+
+struct Piece {
+    pos: PiecePos,
+    color: Color,
+    p_type: PieceType
+}
 // fn bit_to_pos(bit: PiecePos) -> Result<String, String> {
 //     if bit == 0 {
 //         return Err("Invalid Piece; No piece present".to_string());
@@ -43,3 +64,5 @@ fn main() {
     println!("hello world");
     println!("{}", LOOKUP67[67]);
 }
+
+
