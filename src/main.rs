@@ -18,6 +18,7 @@ static LOOKUP67: [usize; 67+1] = [
 ];
 
 
+// Piece
 enum Color {
     White,
     Black
@@ -38,15 +39,35 @@ struct Piece {
     color: Color,
     p_type: PieceType
 }
-// fn bit_to_pos(bit: PiecePos) -> Result<String, String> {
-//     if bit == 0 {
-//         return Err("Invalid Piece; No piece present".to_string());
-//     }
-//     else {
-//         let idx = bit_scan(bit);
-//         return Ok(i_to_pos(idx));
-//     }
-// }
+
+// Square
+enum Square {
+    Empty,
+    Occupied(usize)
+}
+
+// Game type
+struct Game {
+    pieces: Vec<Piece>,
+    squares: Vec<Square>
+}
+
+impl Game {
+    fn to_string(&self) -> String {
+        let mut board = "".to_owned();
+    }
+}
+
+
+fn bit_to_pos(bit: PiecePos) -> Result<String, String> {
+    if bit == 0 {
+        return Err("Invalid Piece; No piece present".to_string());
+    }
+    else {
+        let idx = bit_scan(bit);
+        return Ok(i_to_pos(idx));
+    }
+}
 
 fn i_to_pos(idx: usize) -> String {
     let col = idx % 8;
